@@ -140,34 +140,6 @@ class DhcpOrchestrationTest < ActiveSupport::TestCase
       test "with Grub2 UEFI SecureBoot" do
         assert_equal 'grub2/shimx64.efi', host_with_loader('Grub2 UEFI SecureBoot').provision_interface.dhcp_records.first.filename
       end
-
-      test "with Grub2 UEFI HTTP without httpboot feature" do
-        subnet = FactoryBot.build(:subnet_ipv4, :dhcp, :tftp)
-        host = as_admin do
-          FactoryBot.create(:host, :with_tftp_orchestration, :subnet => subnet, :pxe_loader => 'Grub2 UEFI HTTP')
-        end
-        assert_equal 'http://foreman.some.host.fqdn:80/httpboot/grub2/grubx64.efi', host.provision_interface.dhcp_records.first.filename
-      end
-
-      test "host has httpboot proxy" do
-        assert host_with_loader('Grub2 UEFI HTTP').subnet.httpboot?
-      end
-
-      test "with Grub2 UEFI HTTP" do
-        assert_match(%r"http://somewhere\d+.net:8443/httpboot/grub2/grubx64.efi", host_with_loader('Grub2 UEFI HTTP').provision_interface.dhcp_records.first.filename)
-      end
-
-      test "with Grub2 UEFI HTTPS" do
-        assert_match(%r"https://somewhere\d+.net:8443/httpboot/grub2/grubx64.efi", host_with_loader('Grub2 UEFI HTTPS').provision_interface.dhcp_records.first.filename)
-      end
-
-      test "with Grub2 UEFI HTTPS SecureBoot" do
-        assert_match(%r"https://somewhere\d+.net:8443/httpboot/grub2/shimx64.efi", host_with_loader('Grub2 UEFI HTTPS SecureBoot').provision_interface.dhcp_records.first.filename)
-      end
-
-      test "with iPXE UEFI HTTP" do
-        assert_match(%r"http://somewhere\d+.net:8443/httpboot/ipxe-x64.efi", host_with_loader('iPXE UEFI HTTP').provision_interface.dhcp_records.first.filename)
-      end
     end
   end
 

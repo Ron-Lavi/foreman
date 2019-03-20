@@ -28,11 +28,7 @@ module PxeLoaderSupport
         "Grub2 ELF" => "grub2/grub#{precision}.elf",
         "Grub2 UEFI" => "grub2/grub#{precision}.efi",
         "Grub2 UEFI SecureBoot" => "grub2/shim#{precision}.efi",
-        "Grub2 UEFI HTTP" => "http://#{httpboot_host}/httpboot/grub2/grub#{precision}.efi",
-        "Grub2 UEFI HTTPS" => "https://#{httpboot_host}/httpboot/grub2/grub#{precision}.efi",
-        "Grub2 UEFI HTTPS SecureBoot" => "https://#{httpboot_host}/httpboot/grub2/shim#{precision}.efi",
         "iPXE Embedded" => nil, # renders directly as foreman_url('iPXE')
-        "iPXE UEFI HTTP" => "http://#{httpboot_host}/httpboot/ipxe-#{precision}.efi",
         "iPXE Chain BIOS" => "undionly.kpxe",
         "iPXE Chain UEFI" => "ipxe.efi"
       }.freeze
