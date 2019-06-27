@@ -10,12 +10,24 @@ module FogExtensions
       attribute :associate_external_ip
       attribute :external_ip
 
+      def to_s
+        name || identity
+      end
+
+      def state
+        status.downcase
+      end
+
       def persisted?
         creation_timestamp.present?
       end
 
       def pretty_machine_type
         machine_type.split('/')[-1]
+      end
+
+      def pretty_image_name
+        image_name.split('/')[-1] if disks.present?
       end
 
       def image_id
