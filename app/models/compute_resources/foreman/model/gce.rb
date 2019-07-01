@@ -196,6 +196,21 @@ module Foreman::Model
       true
     end
 
+    def console(uuid)
+      vm = find_vm_by_uuid(uuid)
+      if vm.ready?
+        {
+          'output' =>  vm.serial_port_output, 'timestamp' => Time.now.utc
+        }.merge(:type => 'log', :name => vm.name)
+      else
+        raise ::Foreman::Exception.new(N_("console is not available at this time because the instance is powered off"))
+      end
+    end
+
+    def associated_host(vm)
+      associate_by("ip", [vm.public_ip_address, vm.private_ip_address])
+    end
+
     private
 
     def client
