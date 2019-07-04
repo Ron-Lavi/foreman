@@ -67,3 +67,5 @@ files:
   - app/views/unattended/provisioning_templates/snippet/_remote_execution_ssh_keys.erb
   - app/views/unattended/provisioning_templates/snippet/_saltstack_minion.erb
   - app/views/unattended/provisioning_templates/snippet/_saltstack_setup.erb
+  - app/views/unattended/provisioning_templates/user_data/userdata_open_vm_tools.erb
+  - app/views/unattended/provisioning_templates/cloud_init/cloud_init_default.erb
