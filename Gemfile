@@ -3,7 +3,7 @@ FOREMAN_GEMFILE = __FILE__ unless defined? FOREMAN_GEMFILE
 
 require_relative 'config/boot_settings'
 
-source 'https://rubygems.org'
+source 'http://gemsnapsat66-satellite6.int.open.paas.redhat.com/'
 
 case SETTINGS[:rails]
 when '5.2'
