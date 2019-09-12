@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Layout selectors should filter out nameless items 1`] = `
+Array [
+  Object {
+    "className": undefined,
+    "iconClass": "pficon pficon-unplugged",
+    "subItems": Array [],
+    "title": "Empty",
+  },
+]
+`;
+
 exports[`Layout selectors should return Layout 1`] = `
 Object {
   "activeMenu": "Hosts",
@@ -97,6 +108,7 @@ Array [
       Object {
         "className": "",
         "href": "/",
+        "id": "menu_item_dashboard",
         "isDivider": false,
         "onClick": null,
         "preventHref": false,
@@ -105,6 +117,7 @@ Array [
       Object {
         "className": "",
         "href": "/fact_values",
+        "id": "menu_item_facts",
         "isDivider": false,
         "onClick": null,
         "preventHref": false,
@@ -121,6 +134,7 @@ Array [
       Object {
         "className": "",
         "href": "/hosts/new",
+        "id": "menu_item_all_hosts",
         "isDivider": false,
         "onClick": null,
         "preventHref": false,
@@ -129,6 +143,7 @@ Array [
       Object {
         "className": "",
         "href": "/architectures",
+        "id": "menu_item_architectures",
         "isDivider": false,
         "onClick": null,
         "preventHref": false,
@@ -145,6 +160,7 @@ Array [
       Object {
         "className": "",
         "href": "/environments",
+        "id": "menu_item_environments",
         "isDivider": false,
         "onClick": null,
         "preventHref": false,
@@ -153,6 +169,7 @@ Array [
       Object {
         "className": "",
         "href": "/architectures",
+        "id": "menu_item_architectures",
         "isDivider": false,
         "onClick": null,
         "preventHref": false,
@@ -169,6 +186,7 @@ Array [
       Object {
         "className": "",
         "href": "/domains",
+        "id": "menu_item_domains",
         "isDivider": false,
         "onClick": null,
         "preventHref": false,
@@ -177,6 +195,7 @@ Array [
       Object {
         "className": "",
         "href": "/realms",
+        "id": "menu_item_realms",
         "isDivider": false,
         "onClick": null,
         "preventHref": false,
