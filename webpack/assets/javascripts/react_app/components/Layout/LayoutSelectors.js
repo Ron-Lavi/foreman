@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect';
-import { get, snakeCase } from 'lodash';
-import { noop } from '../../common/helpers';
+import { get } from 'lodash';
 
 export const selectLayout = state => state.layout;
 
@@ -20,32 +19,34 @@ export const patternflyMenuItemsSelector = createSelector(
     patternflyItems(items, currentLocation, currentOrganization)
 );
 
-const childToMenuItem = (child, currentLocation, currentOrganization) => ({
-  id: `menu_item_${snakeCase(child.name)}`,
-  title: child.name,
-  isDivider: child.type === 'divider',
-  className:
-    child.name === currentLocation || child.name === currentOrganization
-      ? 'mobile-active'
-      : '',
-  href: child.url || '#',
-  preventHref: true,
-  onClick: child.onClick || noop,
-});
+const patternflyItems = (data, currentLocation, currentOrganization) => {
+  if (data.length === 0) return [];
+  const items = [];
 
-const patternflyItems = (data, currentLocation, currentOrganization) =>
-  data.map(item => {
-    const childrenArray = item.children
-      .filter(child => child.name)
-      .map(child =>
-        childToMenuItem(child, currentLocation, currentOrganization)
-      );
-
-    return {
+  data.forEach(item => {
+    const childrenArray = [];
+    item.children.forEach(child => {
+      const childObject = {
+        title: child.name,
+        isDivider: child.type === 'divider' && !!child.name,
+        className:
+          child.name === currentLocation || child.name === currentOrganization
+            ? 'mobile-active'
+            : '',
+        href: child.url ? child.url : '#',
+        preventHref: false,
+        onClick: child.onClick ? () => child.onClick() : null,
+      };
+      childrenArray.push(childObject);
+    });
+    const itemObject = {
       title: item.name,
       initialActive: item.active,
       iconClass: item.icon,
       subItems: childrenArray,
       className: item.className,
     };
+    items.push(itemObject);
   });
+  return items;
+};
