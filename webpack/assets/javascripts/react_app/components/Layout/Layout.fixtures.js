@@ -100,7 +100,6 @@ const userChildren = [
     url: '/architectures',
   },
 ];
-
 const infrastructureChildren = [
   {
     type: 'item',
@@ -111,16 +110,6 @@ const infrastructureChildren = [
     type: 'item',
     name: 'Realms',
     url: '/realms',
-  },
-];
-
-const namelessChildren = [
-  {
-    type: 'item',
-    url: '/nameless',
-  },
-  {
-    type: 'divider',
   },
 ];
 
@@ -158,14 +147,7 @@ const hashItemsB = [
   },
 ];
 
-export const hashItemNameless = [
-  {
-    type: 'sub_menu',
-    name: 'Empty',
-    icon: 'pficon pficon-unplugged',
-    children: namelessChildren,
-  },
-];
+export const serverItems = [...hashItemsA, ...hashItemsB];
 
 const logo =
   '/assets/header_logo-c9614c16f2ee399ae9cb7f36ec94b9a26bf8cf9eabaa7fe6099bf80d1f7940db.svg';
