@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardList rendering render without Props 1`] = `
+<Grid
+  bsClass="container"
+  componentClass="div"
+  fluid={false}
+/>
+`;
