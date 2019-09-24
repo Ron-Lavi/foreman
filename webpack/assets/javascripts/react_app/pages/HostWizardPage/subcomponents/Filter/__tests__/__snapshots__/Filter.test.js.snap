@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter rendering render without Props 1`] = `
+<Row
+  bsClass="row"
+  componentClass="div"
+>
+  <Col
+    bsClass="col"
+    componentClass="div"
+    sm={4}
+  >
+    <FormGroup
+      bsClass="form-group"
+      controlId="filter"
+    >
+      <FormControl
+        autoComplete="off"
+        bsClass="form-control"
+        componentClass="input"
+        onChange={[Function]}
+        placeholder="Filter.."
+        type="text"
+      />
+    </FormGroup>
+  </Col>
+</Row>
+`;

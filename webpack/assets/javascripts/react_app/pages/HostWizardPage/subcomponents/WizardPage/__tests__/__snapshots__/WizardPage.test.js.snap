@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WizardPage rendering render without Props 1`] = `
+<Grid
+  bsClass="container"
+  className="foreman_wizard_page"
+  componentClass="div"
+  fluid={false}
+>
+  <h2 />
+  <Filter
+    onChange={[Function]}
+  />
+  <CardList
+    filter=""
+    items={Array []}
+  />
+</Grid>
+`;

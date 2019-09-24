@@ -1,4 +1,4 @@
-const logo = 'https://image.flaticon.com/icons/png/128/1085/1085839.png';
+import logo from '../../assets/host_group.png';
 
 export const items = [
   {
