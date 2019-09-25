@@ -9,7 +9,6 @@ const state = {
 
 const fixtures = {
   'should return WizardPage': () => selectWizardPage(state),
-  'should return WizardPage bool': () => selectBool(state),
 };
 
 describe('WizardPage selectors', () =>

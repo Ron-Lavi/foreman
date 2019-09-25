@@ -5,5 +5,3 @@ Object {
   "bool": false,
 }
 `;
-
-exports[`WizardPage selectors should return WizardPage bool 1`] = `false`;

@@ -4,11 +4,10 @@ import classNames from 'classnames';
 import { noop } from 'patternfly-react';
 import './card.scss';
 
-const Card = ({ logo, title, className, onClick }) => (
+const Card = ({ id, logo, title, className, onClick, selected }) => (
   <div
-    tabIndex="-1"
-    className={classNames('foreman_host_wizard_card', className)}
-    onClick={onClick}
+    className={classNames('foreman_host_wizard_card', className, { selected })}
+    onClick={() => onClick(id)}
   >
     <img src={logo} alt="card logo" />
     <p className="title">{title}</p>
@@ -16,17 +15,20 @@ const Card = ({ logo, title, className, onClick }) => (
 );
 
 Card.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   className: PropTypes.string,
   logo: PropTypes.string,
   onClick: PropTypes.func,
   title: PropTypes.string,
+  selected: PropTypes.bool,
 };
 
 Card.defaultProps = {
   className: null,
   logo: '',
   onClick: noop,
-  title: null,
+  title: '',
+  selected: false,
 };
 
 export default Card;

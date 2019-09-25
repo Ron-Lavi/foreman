@@ -1,13 +1,13 @@
 import { testComponentSnapshotsWithFixtures } from 'react-redux-test-utils';
 
-import Card from '../Card';
+import PaginationArrow from '../PaginationArrow';
 
 const fixtures = {
   'render without Props': {},
   /** fixtures, props for the component */
 };
 
-describe('Card', () => {
+describe('PaginationArrow', () => {
   describe('rendering', () =>
-    testComponentSnapshotsWithFixtures(Card, fixtures));
+    testComponentSnapshotsWithFixtures(PaginationArrow, fixtures));
 });

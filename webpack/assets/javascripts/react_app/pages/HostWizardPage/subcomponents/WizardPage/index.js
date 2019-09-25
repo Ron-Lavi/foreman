@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 
 import * as actions from './WizardPageActions';
 import reducer from './WizardPageReducer';
-import { selectFilter } from './WizardPageSelectors';
+import {
+  selectFilter,
+  selectSelectedID,
+  selectItems,
+  selectItemsPage,
+} from './WizardPageSelectors';
 
 import WizardPage from './WizardPage';
 
@@ -11,6 +16,9 @@ import WizardPage from './WizardPage';
 const mapStateToProps = state => ({
   /** add state keys here */
   filter: selectFilter(state),
+  selectedID: selectSelectedID(state),
+  items: selectItems(state),
+  itemsPage: selectItemsPage(state),
 });
 
 // map action dispatchers to props
