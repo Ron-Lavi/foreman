@@ -271,7 +271,7 @@ module Foreman::Model
       args[:comment] = args[:user_data] if args[:user_data]
       args[:template] = args[:image_id] if args[:image_id]
       template = template(args[:template]) if args[:template]
-      instance_type = instance_type(args[:instance_type]) if args[:instance_type]
+      instance_type = instance_type(args[:instance_type]) unless args[:instance_type].empty?
 
       sanitize_inherited_vm_attributes(args, template, instance_type)
       preallocate_and_clone_disks(args, template) if args[:volumes_attributes].present? && template.present?
