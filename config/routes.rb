@@ -591,4 +591,6 @@ Foreman::Application.routes.draw do
   end
 
   match 'host_wizard' => 'react#index', :via => :get
+
+  match 'auth_sources_test' => 'react#index', :via => :get
 end
