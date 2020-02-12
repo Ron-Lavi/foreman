@@ -4,7 +4,7 @@ import { EmptyState, Button } from 'patternfly-react';
 const AuthSources = props => (
   <EmptyState>
     <EmptyState.Icon />
-    <EmptyState.Title>Empty State Title</EmptyState.Title>
+    <EmptyState.Title>State Title</EmptyState.Title>
     <EmptyState.Info>
       This is the Empty State component. The goal of a empty state pattern is to
       provide a good first impression that helps users to achieve their goals.
