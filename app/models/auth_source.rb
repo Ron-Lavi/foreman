@@ -48,7 +48,6 @@ class AuthSource < ApplicationRecord
 
   scope :non_internal, -> { where("auth_sources.type NOT IN (?)", ['AuthSourceInternal', 'AuthSourceHidden']) }
   scope :except_hidden, -> { where('auth_sources.type <> ?', 'AuthSourceHidden') }
-  scope :only_ldap, -> { where("auth_sources.type = ?", 'AuthSourceLdap') }
 
   def authenticate(login, password)
   end
