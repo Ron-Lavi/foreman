@@ -1,7 +1,7 @@
 module FogExtensions
   module Vsphere
     class MiniServer
-      attr_reader :name, :identity, :cpus, :corespersocket, :memory, :state, :path, :operatingsystem, :hypervisor
+      attr_reader :name, :identity, :cpus, :corespersocket, :memory, :state, :path, :operatingsystem
 
       def initialize(attrs = {})
         @name     = attrs[:name]
@@ -12,7 +12,6 @@ module FogExtensions
         @state    = attrs[:state]
         @path     = attrs[:path]
         @operatingsystem = attrs[:operatingsystem]
-        @hypervisor = attrs[:hypervisor]
       end
 
       def ready?
