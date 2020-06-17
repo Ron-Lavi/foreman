@@ -1,0 +1,72 @@
+name: (non-blocking) React on plugins
+
+on:
+  [push]
+  # pull_request:
+  #   branches: [develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # since it's a non-blocking test, if one plugin tests are failing,
+    # it shouldn't prevent the rest of the plugins tests from running.
+    continue-on-error: true
+    steps:
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      # We could update the postinstall action for foreman to look for an environment variable for plugin webpack dirs
+      # before kicking off the ruby script to find them, this would eliminate the ruby dep and running `npm i` in Katello.
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Checkout Foreman
+        uses: actions/checkout@v2
+        with:
+          path: ./projects/foreman
+      - name: Install Foreman npm dependencies
+        run: npm i
+        working-directory: ${{ github.workspace }}/projects/foreman
+        # start katello
+      - name: Checkout Katello
+        uses: actions/checkout@v2
+        with:
+          repository: Katello/katello
+          ref: master
+          path: ./projects/katello
+      - name: Install Katello npm dependencies
+        run: npm i
+        working-directory: ${{ github.workspace }}/projects/katello
+      - name: Run Katello tests
+        run: npm test
+        working-directory: ${{ github.workspace }}/projects/katello
+        # end katello
+        # start foreman-tasks
+      - name: Checkout foreman-tasks
+        uses: actions/checkout@v2
+        with:
+          repository: theforeman/foreman-tasks
+          ref: master
+          path: ./projects/foreman-tasks
+      - name: Install foreman-tasks npm dependencies
+        run: npm i
+        working-directory: ${{ github.workspace }}/projects/foreman-tasks
+      - name: Run foreman-tasks tests
+        run: npm test
+        working-directory: ${{ github.workspace }}/projects/foreman-tasks
+        # end foreman-tasks
+        # start foreman_rh_cloud
+      - name: Checkout foreman_rh_cloud
+        uses: actions/checkout@v2
+        with:
+          repository: theforeman/foreman_rh_cloud
+          ref: master
+          path: ./projects/foreman_rh_cloud
+      - name: Install foreman_rh_cloud npm dependencies
+        run: npm i
+        working-directory: ${{ github.workspace }}/projects/foreman_rh_cloud
+      - name: Run foreman_rh_cloud tests
+        run: npm test
+        working-directory: ${{ github.workspace }}/projects/foreman_rh_cloud
+        # end foreman_rh_cloud
