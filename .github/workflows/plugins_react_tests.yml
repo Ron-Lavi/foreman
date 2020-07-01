@@ -1,8 +1,11 @@
 name: (non-blocking) React on plugins
 
 on:
-  pull_request:
-    branches: [develop]
+  push:
+    paths:
+      - 'webpack/*'
+      - 'package.json'
+      - 'config/webpack.config.js'
 
 jobs:
   test:
