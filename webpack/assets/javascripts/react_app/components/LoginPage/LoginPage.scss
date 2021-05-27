@@ -1,7 +1,5 @@
-@import '~@theforeman/vendor/scss/variables';
-
 $caption_font_weight: 600;
-/* stylelint-disable-next-line */
+
 $background_image: linear-gradient(
   to right,
   #005e8c,
@@ -11,47 +9,15 @@ $background_image: linear-gradient(
   #041a33
 );
 
-#login-page {
-  height: 100%;
+.pf-c-login {
+  background-image: $background_image;
 
-  #login-footer-text {
-    position: fixed;
-    bottom: 0;
-    padding: 30px;
-    color: $color-pf-white;
-    font-size: 14px;
+  .pf-c-login__main {
+    height: fit-content;
+    margin: auto 0;
   }
 
-  .login-pf {
-    background: none;
-    background-image: $background_image;
-
-    .login-pf-header {
-      margin-bottom: 0 !important; // conflicts with patternfly-sass gem.
-
-      h1 {
-        font-weight: 500;
-      }
-    }
-
-    .login-pf-caption {
-      color: $color-pf-white;
-
-      h1 {
-        font-weight: $caption_font_weight;
-      }
-    }
-
-    // patternfly_and_overrides.scss sets all spinners in the app to left.
-    .spinner {
-      float: none;
-    }
-
-    // patternfly_and_overrides.scss adjusts all inputs glyphicons.
-    .form-control + .glyphicon {
-      position: absolute;
-      padding: 0;
-      right: 0;
-    }
+  svg.pf-c-spinner.pf-m-lg {
+    margin-top: 14px;
   }
 }

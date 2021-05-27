@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LoginPage as PFLoginPage } from 'patternfly-react';
-import { translate as __ } from '../../common/I18n';
-import { adjustAlerts, defaultFormProps } from './helpers';
+import {
+  LoginPage as PFLoginPage,
+  Text,
+  TextContent,
+  TextVariants,
+} from '@patternfly/react-core';
+import { translate as __, sprintf } from '../../common/I18n';
+import { adjustAlerts } from './helpers';
+import Alerts from './components/Alerts';
+import LoginForm from './components/LoginForm';
 import './LoginPage.scss';
 
 const LoginPage = ({
@@ -14,35 +21,40 @@ const LoginPage = ({
   version,
 }) => {
   const { modifiedAlerts, submitErrors } = adjustAlerts(alerts);
+  const textContent = (
+    <TextContent>
+      <Text component={TextVariants.h1} id="title">
+        {__('Welcome')}
+      </Text>
+      {version && (
+        <Text component={TextVariants.p} id="version">
+          {sprintf(__('Version %s'), version)}
+        </Text>
+      )}
+      <br />
+      {caption && (
+        <Text component={TextVariants.p} id="login-footer-text">
+          {caption}
+        </Text>
+      )}
+    </TextContent>
+  );
+
   return (
-    <div id="login-page">
+    <>
+      <Alerts serverAlerts={modifiedAlerts} />
       <PFLoginPage
-        container={{
-          backgroundUrl,
-          alert: modifiedAlerts,
-        }}
-        header={{
-          logoSrc,
-          caption: (
-            <>
-              <h1 id="title">{__('Welcome')}</h1>
-              {version && <p id="version">{`${__('Version')} ${version}`}</p>}
-            </>
-          ),
-        }}
-        card={{
-          title: __('Log in to your account'),
-          form: {
-            ...defaultFormProps,
-            submitError: submitErrors,
-            additionalFields: (
-              <input name="authenticity_token" type="hidden" value={token} />
-            ),
-          },
-        }}
-      />
-      {caption && <div id="login-footer-text">{caption}</div>}
-    </div>
+        footerListVariants="inline"
+        brandImgSrc={logoSrc}
+        brandImgAlt="Foreman logo"
+        backgroundImgSrc={backgroundUrl}
+        backgroundImgAlt="background-image"
+        textContent={textContent}
+        loginTitle={__('Log in to your account')}
+      >
+        <LoginForm token={token} errors={submitErrors} />
+      </PFLoginPage>
+    </>
   );
 };
 
