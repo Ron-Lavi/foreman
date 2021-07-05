@@ -2,27 +2,32 @@ class ArchitecturesController < ApplicationController
   include ApplicationHelper
   include Foreman::Controller::AutoCompleteSearch
   include Foreman::Controller::Parameters::Architecture
+  # include TableTemplate
 
   before_action :find_resource, :only => [:edit, :update, :destroy]
 
-  def index
-    @architectures = resource_base_search_and_page.includes(:operatingsystems)
-    respond_to do |format|
-      format.html do
-        render "index"
-      end
-      format.json do
-        render json: {
-          rows: rows(@architectures),
-          columns: columns,
-          item_count: @architectures.count,
-          header: _("Architectures"),
-          title: _("Foreman Architectures"), # optional, sets the browser tab title
-          page_actions: page_actions,
-        }, status: :ok
-      end
-    end
+  def resource_base
+    super.includes(:operatingsystems)
   end
+
+  # def index
+  #   @architectures = resource_base_search_and_page
+  #   respond_to do |format|
+  #     format.html do
+  #       render "index"
+  #     end
+  #     format.json do
+  #       render json: {
+  #         rows: rows(@architectures),
+  #         columns: columns,
+  #         item_count: @architectures.count,
+  #         header: _("Architectures"),
+  #         title: _("Foreman Architectures"), # optional, sets the browser tab title
+  #         page_actions: page_actions,
+  #       }, status: :ok
+  #     end
+  #   end
+  # end
 
   def new
     @architecture = Architecture.new
@@ -58,12 +63,29 @@ class ArchitecturesController < ApplicationController
 
   private
 
+  # class TableProvider
+  ## def columns return [{ label, weight }]
+  ## def row(resource) return [{ value, weight }]
+  ## def row_actions(resource) return [{ action, weight }]
+  ## def global_actions return [{ action, weight }]
+
+  # PluginArchitecturesTableProvider < TableProvider
+
+  # engine.rb
+  # ArchitecturesController.register_table_provider(PluginArchitecturesTableProvider)
+
+  # architectures_controller.rb
+  # include TableTemplate
   def controller_permission
     'architectures'
   end
 
   def columns
-    [js_sortable_col(_('Name'), 'name'), _('Operating systems'), _('Hosts')]
+    [
+      { label: js_sortable_col(_('Name'), 'name'), weight: 100 },
+      { label: _('Operating systems'), weight: 200 },
+      { label: _('Hosts'), weight: 300 },
+    ]
   end
 
   def rows(architectures)
