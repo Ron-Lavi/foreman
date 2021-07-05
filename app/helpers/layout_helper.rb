@@ -45,7 +45,9 @@ module LayoutHelper
   end
 
   def index_pages
-    []
+    [
+      { path: '/next_architectures', props: { path: architectures_path } },
+    ]
   end
 
   def layout_data
