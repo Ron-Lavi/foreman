@@ -1,0 +1,775 @@
+{
+  "error": "`cy.visit()` failed trying to load:\n\nhttp://localhost:5017/\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx`.\n\nThis http request was redirected '1' time to:\n\n  - 302: http://localhost:5017/users/login\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`",
+  "records": {
+    "Audited::Audit": [
+
+    ],
+    "ActiveRecord::SessionStore::Session": [
+      {
+        "id": 1,
+        "session_id": "2::a04dbae34b1f7339ec4e238c34c74438868ad18aa4940a9cde37689b7c7e1142",
+        "data": "BAh7BkkiEW9yaWdpbmFsX3VyaQY6BkVGSSIGLwY7AFQ=\n",
+        "created_at": "2022-05-22 17:30:12 UTC",
+        "updated_at": "2022-05-22 17:30:12 UTC"
+      }
+    ],
+    "Setting": [
+
+    ],
+    "ForemanPuppet::HostPuppetFacet": [
+
+    ],
+    "ForemanPuppet::HostgroupPuppetFacet": [
+
+    ],
+    "Hostgroup": [
+
+    ],
+    "Host::Base": [
+
+    ],
+    "Host::Managed": [
+
+    ],
+    "Report": [
+
+    ],
+    "ConfigReport": [
+
+    ],
+    "HostStatus::Status": [
+
+    ],
+    "HostStatus::ConfigurationStatus": [
+
+    ],
+    "HostStatus::BuildStatus": [
+
+    ],
+    "LookupValue": [
+
+    ],
+    "LookupKey": [
+
+    ],
+    "ForemanPuppet::PuppetclassLookupKey": [
+
+    ],
+    "Operatingsystem": [
+
+    ],
+    "AIX": [
+
+    ],
+    "Altlinux": [
+
+    ],
+    "Archlinux": [
+
+    ],
+    "Coreos": [
+
+    ],
+    "Debian": [
+
+    ],
+    "Fcos": [
+
+    ],
+    "Freebsd": [
+
+    ],
+    "Gentoo": [
+
+    ],
+    "Junos": [
+
+    ],
+    "NXOS": [
+
+    ],
+    "Rancheros": [
+
+    ],
+    "Redhat": [
+
+    ],
+    "Rhcos": [
+
+    ],
+    "Solaris": [
+
+    ],
+    "Suse": [
+
+    ],
+    "VRP": [
+
+    ],
+    "Windows": [
+
+    ],
+    "Xenserver": [
+
+    ],
+    "Nic::Base": [
+
+    ],
+    "Nic::Interface": [
+
+    ],
+    "Nic::Managed": [
+
+    ],
+    "Nic::BMC": [
+
+    ],
+    "Nic::Bond": [
+
+    ],
+    "Nic::Bridge": [
+
+    ],
+    "Taxonomy": [
+
+    ],
+    "Location": [
+
+    ],
+    "Organization": [
+
+    ],
+    "User": [
+
+    ],
+    "TemplateCombination": [
+
+    ],
+    "Template": [
+
+    ],
+    "Ptable": [
+
+    ],
+    "ProvisioningTemplate": [
+
+    ],
+    "Foreman::RenderTemplatesFromFolder::ProvisioningTemplateFromFolder": [
+
+    ],
+    "ReportTemplate": [
+
+    ],
+    "Parameter": [
+
+    ],
+    "CommonParameter": [
+
+    ],
+    "DomainParameter": [
+
+    ],
+    "GroupParameter": [
+
+    ],
+    "LocationParameter": [
+
+    ],
+    "OrganizationParameter": [
+
+    ],
+    "OsParameter": [
+
+    ],
+    "SubnetParameter": [
+
+    ],
+    "HostParameter": [
+
+    ],
+    "Model": [
+
+    ],
+    "Domain": [
+
+    ],
+    "Realm": [
+
+    ],
+    "Architecture": [
+
+    ],
+    "SmartProxy": [
+
+    ],
+    "ComputeResource": [
+
+    ],
+    "Foreman::Model::Libvirt": [
+
+    ],
+    "Foreman::Model::Ovirt": [
+
+    ],
+    "Foreman::Model::EC2": [
+
+    ],
+    "Foreman::Model::Vmware": [
+
+    ],
+    "Foreman::Model::Openstack": [
+
+    ],
+    "Foreman::Model::GCE": [
+
+    ],
+    "Image": [
+
+    ],
+    "Subnet": [
+
+    ],
+    "Subnet::Ipv4": [
+
+    ],
+    "Subnet::Ipv6": [
+
+    ],
+    "Usergroup": [
+
+    ],
+    "ForemanPuppet::Environment": [
+
+    ],
+    "TaxableTaxonomy": [
+
+    ],
+    "Medium": [
+
+    ],
+    "SmartProxyFeature": [
+
+    ],
+    "Feature": [
+
+    ],
+    "ComputeAttribute": [
+
+    ],
+    "PersonalAccessToken": [
+
+    ],
+    "SshKey": [
+
+    ],
+    "Permission": [
+
+    ],
+    "ComputeProfile": [
+
+    ],
+    "FactName": [
+
+    ],
+    "Katello::RhsmFactName": [
+
+    ],
+    "ForemanAnsible::FactName": [
+
+    ],
+    "ForemanChef::FactName": [
+
+    ],
+    "ForemanSalt::FactName": [
+
+    ],
+    "PuppetFactName": [
+
+    ],
+    "FactValue": [
+
+    ],
+    "Log": [
+
+    ],
+    "Source": [
+
+    ],
+    "Message": [
+
+    ],
+    "ForemanPuppet::Puppetclass": [
+
+    ],
+    "HostFacets::ReportedDataFacet": [
+
+    ],
+    "HostFacets::InfrastructureFacet": [
+
+    ],
+    "ForemanRegister::RegistrationFacet": [
+
+    ],
+    "ForemanPuppet::ConfigGroup": [
+
+    ],
+    "ForemanPuppet::ConfigGroupClass": [
+
+    ],
+    "ForemanPuppet::EnvironmentClass": [
+
+    ],
+    "ForemanPuppet::HostgroupClass": [
+
+    ],
+    "ForemanPuppet::HostClass": [
+
+    ],
+    "ForemanPuppet::HostConfigGroup": [
+
+    ],
+    "AuthSource": [
+
+    ],
+    "AuthSourceExternal": [
+
+    ],
+    "AuthSourceInternal": [
+
+    ],
+    "AuthSourceLdap": [
+
+    ],
+    "AuthSourceHidden": [
+
+    ],
+    "Bookmark": [
+
+    ],
+    "Filter": [
+
+    ],
+    "Role": [
+
+    ],
+    "Filtering": [
+
+    ],
+    "HttpProxy": [
+
+    ],
+    "MailNotification": [
+
+    ],
+    "ConfigManagementError": [
+
+    ],
+    "UserMailNotification": [
+
+    ],
+    "OsDefaultTemplate": [
+
+    ],
+    "TemplateKind": [
+
+    ],
+    "TemplateInput": [
+
+    ],
+    "SubnetDomain": [
+
+    ],
+    "UserRole": [
+
+    ],
+    "CachedUsergroupMember": [
+
+    ],
+    "CachedUserRole": [
+
+    ],
+    "ExternalUsergroup": [
+
+    ],
+    "ForemanInternal": [
+
+    ],
+    "JwtSecret": [
+
+    ],
+    "KeyPair": [
+
+    ],
+    "Notification": [
+
+    ],
+    "NotificationBlueprint": [
+
+    ],
+    "NotificationRecipient": [
+
+    ],
+    "StoredValue": [
+
+    ],
+    "TablePreference": [
+
+    ],
+    "Token": [
+
+    ],
+    "Token::Build": [
+
+    ],
+    "Token::Puppetca": [
+
+    ],
+    "UpgradeTask": [
+
+    ],
+    "UsergroupMember": [
+
+    ],
+    "Widget": [
+
+    ],
+    "Operatingsystem::HABTM_Media": [
+
+    ],
+    "Operatingsystem::HABTM_Ptables": [
+
+    ],
+    "Operatingsystem::HABTM_Architectures": [
+
+    ],
+    "Operatingsystem::HABTM_ProvisioningTemplates": [
+
+    ],
+    "Operatingsystem::HABTM_Puppetclasses": [
+
+    ],
+    "Location::HABTM_Organizations": [
+
+    ],
+    "Organization::HABTM_Locations": [
+
+    ],
+    "Ptable::HABTM_Operatingsystems": [
+
+    ],
+    "ProvisioningTemplate::HABTM_Operatingsystems": [
+
+    ],
+    "Architecture::HABTM_Operatingsystems": [
+
+    ],
+    "Medium::HABTM_Operatingsystems": [
+
+    ],
+    "ForemanPuppet::Puppetclass::HABTM_Operatingsystems": [
+
+    ],
+    "ActiveRecord::SchemaMigration": [
+      {
+        "version": "20090714132448"
+      },
+      {
+        "version": "20090714132449"
+      },
+      {
+        "version": "20090715143858"
+      },
+      {
+        "version": "20090717025820"
+      },
+      {
+        "version": "20090718060746"
+      },
+      {
+        "version": "20090718064254"
+      },
+      {
+        "version": "20090720134126"
+      },
+      {
+        "version": "20090722140138"
+      },
+      {
+        "version": "20090729132209"
+      },
+      {
+        "version": "20090730152224"
+      },
+      {
+        "version": "20090804130144"
+      },
+      {
+        "version": "20090820130541"
+      },
+      {
+        "version": "20090905150131"
+      },
+      {
+        "version": "20090905155444"
+      },
+      {
+        "version": "20090907045751"
+      },
+      {
+        "version": "20090916053824"
+      },
+      {
+        "version": "20090920043521"
+      },
+      {
+        "version": "20090920064156"
+      },
+      {
+        "version": "20090920065522"
+      },
+      {
+        "version": "20091012135004"
+      },
+      {
+        "version": "20091016031017"
+      },
+      {
+        "version": "20091022054108"
+      },
+      {
+        "version": "20091219132338"
+      },
+      {
+        "version": "20091219132839"
+      },
+      {
+        "version": "20100310080727"
+      },
+      {
+        "version": "20100414125652"
+      },
+      {
+        "version": "20100416124600"
+      },
+      {
+        "version": "20100419151910"
+      },
+      {
+        "version": "20100523141204"
+      },
+      {
+        "version": "20100525094200"
+      },
+      {
+        "version": "20100601221000"
+      },
+      {
+        "version": "20100616114400"
+      },
+      {
+        "version": "20100625155400"
+      },
+      {
+        "version": "20100628123400"
+      },
+      {
+        "version": "20100629093200"
+      },
+      {
+        "version": "20100701081235"
+      },
+      {
+        "version": "20100822072954"
+      },
+      {
+        "version": "20100823181036"
+      },
+      {
+        "version": "20100914092104"
+      },
+      {
+        "version": "20101018120548"
+      },
+      {
+        "version": "20101018120603"
+      },
+      {
+        "version": "20101018120621"
+      },
+      {
+        "version": "20101019122857"
+      },
+      {
+        "version": "20101019183859"
+      },
+      {
+        "version": "20101103150254"
+      },
+      {
+        "version": "20101118130026"
+      },
+      {
+        "version": "20101121080425"
+      },
+      {
+        "version": "20101121135521"
+      },
+      {
+        "version": "20101122132041"
+      },
+      {
+        "version": "20101123152150"
+      },
+      {
+        "version": "20101123153303"
+      },
+      {
+        "version": "20101130093613"
+      },
+      {
+        "version": "20101130100315"
+      },
+      {
+        "version": "20101202104444"
+      },
+      {
+        "version": "20110117162722"
+      },
+      {
+        "version": "20110213104226"
+      },
+      {
+        "version": "20110216101848"
+      },
+      {
+        "version": "20110301154453"
+      },
+      {
+        "version": "20110327123639"
+      },
+      {
+        "version": "20110404150043"
+      },
+      {
+        "version": "20110407091150"
+      },
+      {
+        "version": "20110417102947"
+      },
+      {
+        "version": "20110616080444"
+      },
+      {
+        "version": "20110617190131"
+      },
+      {
+        "version": "20110619130336"
+      },
+      {
+        "version": "20110628115422"
+      },
+      {
+        "version": "20110801090318"
+      },
+      {
+        "version": "20110803114134"
+      },
+      {
+        "version": "20111124095053"
+      },
+      {
+        "version": "20111124095054"
+      },
+      {
+        "version": "20111124095055"
+      },
+      {
+        "version": "20111205231500"
+      },
+      {
+        "version": "20120102071633"
+      },
+      {
+        "version": "20120110113051"
+      },
+      {
+        "version": "20120122131037"
+      },
+      {
+        "version": "20120126113850"
+      },
+      {
+        "version": "20120311081257"
+      },
+      {
+        "version": "20120313081913"
+      },
+      {
+        "version": "20120502105518"
+      },
+      {
+        "version": "20120506143325"
+      },
+      {
+        "version": "20120509131302"
+      },
+      {
+        "version": "20120510113417"
+      },
+      {
+        "version": "20120521142924"
+      },
+      {
+        "version": "20120523065531"
+      },
+      {
+        "version": "20120529113900"
+      },
+      {
+        "version": "20120529115814"
+      },
+      {
+        "version": "20120607074318"
+      },
+      {
+        "version": "20120612070100"
+      },
+      {
+        "version": "20120613082125"
+      },
+      {
+        "version": "20120621135042"
+      },
+      {
+        "version": "20120624081510"
+      },
+      {
+        "version": "20120624093958"
+      },
+      {
+        "version": "20120624094034"
+      },
+      {
+        "version": "20120705130038"
+      },
+      {
+        "version": "20120905131841"
+      },
+      {
+        "version": "20120916080843"
+      },
+      {
+        "version": "20120921000313"
+      },
+      {
+        "version": "20120921105349"
+      },
+      {
+        "version": "20121003172526"
+      },
+      {
+        "version": "20121011115320"
+      }
+    ]
+  }
+}

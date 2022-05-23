@@ -7,3 +7,4 @@ webpack/simple_named_modules.js
 *fixture*
 *.stories.js
 *const*
+cypress/**
