@@ -10,13 +10,15 @@
 
     <%= favicon_link_tag "favicon.ico"%>
 
-    <%= stylesheet_link_tag *webpack_asset_paths('foreman-vendor', :extension => 'css') %>
-    <%= stylesheet_link_tag *webpack_asset_paths('bundle', :extension => 'css') %>
     <%= stylesheet_link_tag 'application' %>
-    <%= webpacked_plugins_with_global_css %>
-    <%= yield(:stylesheets) %>
-
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= yield(:stylesheets) %>
+    
+    <%= vite_client_tag %>
+    <%= vite_javascript_tag 'index.jsx' %>
 
     <script type="text/javascript">
       var URL_PREFIX = '<%= controller.relative_url_root %>';
@@ -31,13 +33,6 @@
         var I18N_MARK = true;
       <% end %>
     </script>
-    <%= javascript_include_tag "locale/#{FastGettext.locale}/app" %>
-    <%= javascript_include_tag *webpack_asset_paths('foreman-vendor', :extension => 'js') %>
-    <%= javascript_include_tag *webpack_asset_paths('vendor', :extension => 'js') %>
-    <%= javascript_include_tag *webpack_asset_paths('bundle', :extension => 'js') %>
-    <%= javascript_include_tag 'application' %>
-    <%= webpacked_plugins_with_global_js %>
-    <%= webpack_dev_server %>
     <%= yield(:javascripts) %>
 
     <script type="text/javascript">
@@ -62,6 +57,7 @@
 
       <%= yield(:content) %>
       </div>
+      <div id="root"></div>
     <% else %>
       <%= yield(:content) %>
     <% end %>

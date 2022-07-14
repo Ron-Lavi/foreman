@@ -12,19 +12,19 @@ module ReactjsHelper
   end
 
   def webpacked_plugins_with_global_css
-    global_css_tags(global_plugins_list).join.html_safe
+    # global_css_tags(global_plugins_list).join.html_safe
   end
 
   def webpacked_plugins_js_for(*plugin_names)
-    js_tags_for(select_requested_plugins(plugin_names)).join.html_safe
+    # js_tags_for(select_requested_plugins(plugin_names)).join.html_safe
   end
 
   def webpacked_plugins_with_global_js
-    global_js_tags(global_plugins_list).join.html_safe
+    # global_js_tags(global_plugins_list).join.html_safe
   end
 
   def webpacked_plugins_css_for(*plugin_names)
-    css_tags_for(select_requested_plugins(plugin_names)).join.html_safe
+    # css_tags_for(select_requested_plugins(plugin_names)).join.html_safe
   end
 
   def select_requested_plugins(plugin_names)
@@ -38,31 +38,31 @@ module ReactjsHelper
   end
 
   def js_tags_for(requested_plugins)
-    requested_plugins.map do |plugin|
-      javascript_include_tag(*webpack_asset_paths(plugin.to_s, :extension => 'js'))
-    end
+    # requested_plugins.map do |plugin|
+    #   javascript_include_tag(*webpack_asset_paths(plugin.to_s, :extension => 'js'))
+    # end
   end
 
   def global_js_tags(requested_plugins)
-    requested_plugins.map do |plugin|
-      plugin[:files].map do |file|
-        javascript_include_tag(*webpack_asset_paths("#{plugin[:id]}:#{file}", :extension => 'js'), :defer => "defer")
-      end
-    end
+    # requested_plugins.map do |plugin|
+    #   plugin[:files].map do |file|
+    #     javascript_include_tag(*webpack_asset_paths("#{plugin[:id]}:#{file}", :extension => 'js'), :defer => "defer")
+    #   end
+    # end
   end
 
   def global_css_tags(requested_plugins)
-    requested_plugins.map do |plugin|
-      plugin[:files].map do |file|
-        stylesheet_link_tag(*webpack_asset_paths("#{plugin[:id]}:#{file}", :extension => 'css'))
-      end
-    end
+    # requested_plugins.map do |plugin|
+    #   plugin[:files].map do |file|
+    #     stylesheet_link_tag(*webpack_asset_paths("#{plugin[:id]}:#{file}", :extension => 'css'))
+    #   end
+    # end
   end
 
   def css_tags_for(requested_plugins)
-    requested_plugins.map do |plugin|
-      stylesheet_link_tag(*webpack_asset_paths(plugin.to_s, :extension => 'css'))
-    end
+    # requested_plugins.map do |plugin|
+    #   stylesheet_link_tag(*webpack_asset_paths(plugin.to_s, :extension => 'css'))
+    # end
   end
 
   private
