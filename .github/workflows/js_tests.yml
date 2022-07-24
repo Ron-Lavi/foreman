@@ -2,11 +2,11 @@ name: JavaScript
 on:
   pull_request:
     paths:
-      - 'webpack/**'
-      - 'package.json'
-      - '.github/workflows/js_tests.yml'
-      - '.eslintrc'
-      - '.eslintignore'
+      - "webpack/**"
+      - "package.json"
+      - ".github/workflows/js_tests.yml"
+      - ".eslintrc"
+      - ".eslintignore"
 
 permissions:
   contents: read
@@ -14,38 +14,36 @@ permissions:
 jobs:
   test:
     permissions:
-      checks: write  # for coverallsapp/github-action to create new checks
-      contents: read  # for actions/checkout to fetch code
+      checks: write # for coverallsapp/github-action to create new checks
+      contents: read # for actions/checkout to fetch code
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version:
-          - 12
-          - 14
     steps:
-      - name: Checkout Foreman
-        uses: actions/checkout@v3
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-      - name: Setup Node
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Generate npm dependencies package-lock
-        run: npm install --package-lock-only --no-audit
-      - name: Install npm dependencies
-        run: npm ci --no-audit
+          node-version: 14
+      - name: Checkout Foreman
+        uses: actions/checkout@v3
+      - name: Setup Bun Runtime
+        uses: antongolub/action-setup-bun@v1
+        with:
+          bun-repo: "oven-sh/bun"
+          bun-version: ">=0.1"
+          bun-config: '{"logLevel": "debug"}'
+      - name: Install node modules
+        run: bun install --force --verbose
+      - name: Install @theforeman/test dependencies
+        run: |
+          cd node_modules/@theforeman/test
+          bun install --force --verbose
       - name: Run linter
-        run: npm run lint
+        run: bun run lint
       - name: Run Spellcheck (only warnings)
-        run: npm run lint:spelling
+        run: bun run lint:spelling
       - name: Run tests
-        run: npm run test
-      - name: Publish Coveralls (node v14)
-        if: ${{ matrix.node-version == 14 }}
+        run: bun run test
+      - name: Publish Coveralls
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
